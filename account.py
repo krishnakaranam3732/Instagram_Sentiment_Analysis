@@ -30,16 +30,19 @@ class Account:
                  options=options, service_log_path=devnull)
         driver.get(self.link)
         # time.sleep(1)
-        load_more_comments = "//*[@id='react-root']/section/main/div/" +\
-                             "div/article/div[2]/div[1]/ul/li[2]/button"
-        more = driver.find_element_by_xpath(load_more_comments)
 
-        while(more):
-            print("clicking more")
-            actions = ActionChains(driver)
-            actions.move_to_element(more).click(more).perform()
-            more = driver.find_element_by_xpath(load_more_comments)
+        script = "window.scrollTo(0, document.body.scrollHeight);" +\
+                 "var lenOfPage=document.body.scrollHeight;return lenOfPage;"
 
+        lenOfPage = driver.execute_script(script)
+        match = False
+        while not match:
+            print("Scrolling")
+            lastCount = lenOfPage
+            lenOfPage = driver.execute_script(script)
+            # time.sleep(1)
+            if lastCount == lenOfPage:
+                match = True
         self.page = driver.page_source
         driver.close()
 

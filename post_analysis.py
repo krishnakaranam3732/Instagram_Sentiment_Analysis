@@ -36,7 +36,6 @@ class PostAnalysis:
             more = None
 
         while(more):
-            print("clicking more")
             actions = ActionChains(driver)
             actions.move_to_element(more).click(more).perform()
             try:
