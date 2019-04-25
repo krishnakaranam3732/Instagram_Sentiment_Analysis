@@ -32,6 +32,7 @@ class Account:
         driver.get(self.link)
         time.sleep(2)
         posts = '//*[@id="react-root"]/section/main/div/header/section/ul/li[1]/a/span'
+        picture = '//*[@id="react-root"]/section/main/div/header/div/div/span/img'
         num_posts = driver.find_element_by_xpath(posts)
         sleep_secs = 5
         try:
@@ -46,7 +47,7 @@ class Account:
 
         while time.time() < t_end:
             print("I'm executing")
-            element = driver.find_element_by_tag_name("footer")
+            element = driver.find_element_by_xpath(picture)
             element.send_keys(Keys.END)
 
         # end = "//*[@id="react-root"]/section/footer/div/span"
