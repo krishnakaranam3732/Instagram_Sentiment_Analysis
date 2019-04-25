@@ -32,6 +32,7 @@ class PostAnalysis:
                              "div/article/div[2]/div[1]/ul/li[2]/button"
         try:
             # more = driver.find_element_by_xpath(load_more_comments)
+            print(driver.page_source)
             more = driver.find_elements_by_class_name("lnrre")
             print("First more" + more.getText())
         except:
