@@ -35,15 +35,17 @@ class PostAnalysis:
             print("First more" + str(more))
         except:
             more = None
-
+        count = 1
         while(more):
             # print("Loading")
             actions = ActionChains(driver)
-            actions.move_to_element(more).click(more).perform()
+            print("action",
+                  actions.move_to_element(more).click(more).perform())
             # time.sleep(0.1)
             try:
                 more = driver.find_element_by_xpath(load_more_comments)
-                print("Second more" + str(more))
+                print(str(count) + "more" + str(more))
+                count += 1
             except:
                 more = None
 
