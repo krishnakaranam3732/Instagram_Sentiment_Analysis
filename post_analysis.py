@@ -37,6 +37,7 @@ class PostAnalysis:
             # more = driver.find_elements_by_class_name("Z4IfV _0mzm- sqdOP yWX7d        ")
             # more = driver.find_element_by_css_selector("#food span.dairy.aged")
             print("First more" + str(more))
+            print("text is", more.text)
         except Exception as e:
             print(str(e))
             more = None
