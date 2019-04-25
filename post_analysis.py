@@ -27,14 +27,13 @@ class PostAnalysis:
                  executable_path='/usr/bin/chromedriver',
                  options=options, service_log_path=devnull)
         driver.get(self.link)
-        time.sleep(0.1)
+        time.sleep(1)
         load_more_comments = "//*[@id='react-root']/section/main/div/" +\
                              "div/article/div[2]/div[1]/ul/li[2]/button"
         try:
             # more = driver.find_element_by_xpath(load_more_comments)
-            more = driver.find_element_by_partial_link_text("more comments")
-
-            print("First more" + str(more.getText()))
+            more = driver.find_elements_by_class_name("lnrre")
+            print("First more" + more.getText())
         except:
             more = None
         count = 1
@@ -46,7 +45,7 @@ class PostAnalysis:
             # time.sleep(0.1)
             try:
                 # more = driver.find_element_by_xpath(load_more_comments)
-                more = driver.find_element_by_partial_link_text("more comments")
+                more = driver.find_elements_by_class_name("lnrre")
                 print(str(count) + "more" + str(more.getText()))
                 count += 1
             except:
