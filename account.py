@@ -57,7 +57,7 @@ class Account:
             # driver.find_element_by_tag_name('article').send_keys(Keys.END)
             links = driver.find_elements_by_tag_name('a')
             print(str(len(links)) + " " + links[-1].text)
-            driver.execute_script('arguments[0].scrollIntoView(true);',
+            driver.execute_script('arguments[0].scrollIntoView(false);',
                                   links[-1])
             time.sleep(2)
             # time.sleep(2)
