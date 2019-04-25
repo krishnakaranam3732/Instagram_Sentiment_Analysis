@@ -32,7 +32,7 @@ class PostAnalysis:
                              "div/article/div[2]/div[1]/ul/li[2]/button"
         try:
             more = driver.find_element_by_xpath(load_more_comments)
-            print("First more" + str(more))
+            print("First more" + str(more.getText()))
         except:
             more = None
         count = 1
@@ -44,7 +44,7 @@ class PostAnalysis:
             # time.sleep(0.1)
             try:
                 more = driver.find_element_by_xpath(load_more_comments)
-                print(str(count) + "more" + str(more))
+                print(str(count) + "more" + str(more.getText()))
                 count += 1
             except:
                 more = None
