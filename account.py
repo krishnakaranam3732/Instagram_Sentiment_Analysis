@@ -39,8 +39,8 @@ class Account:
             num_of_posts = int(num_of_posts)
             num_posts.send_keys(Keys.END)
             sleep_secs = int(num_of_posts/30)
-        except:
-            print("Exception occured")
+        except Exception as e:
+            print("Exception occured: ", str(e))
 
         time.sleep(sleep_secs)
         # end = "//*[@id="react-root"]/section/footer/div/span"
