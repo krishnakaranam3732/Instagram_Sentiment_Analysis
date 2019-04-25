@@ -31,9 +31,10 @@ class PostAnalysis:
         load_more_comments = "//*[@id='react-root']/section/main/div/" +\
                              "div/article/div[2]/div[1]/ul/li[2]/button"
         try:
+            # class="Z4IfV _0mzm- sqdOP yWX7d        "
             # more = driver.find_element_by_xpath(load_more_comments)
             print(driver.page_source)
-            more = driver.find_elements_by_class_name("lnrre")
+            more = driver.find_elements_by_class_name("Z4IfV _0mzm- sqdOP yWX7d        ")
             print("First more" + more.getText())
         except:
             more = None
@@ -46,7 +47,7 @@ class PostAnalysis:
             # time.sleep(0.1)
             try:
                 # more = driver.find_element_by_xpath(load_more_comments)
-                more = driver.find_elements_by_class_name("lnrre")
+                more = driver.find_elements_by_class_name("Z4IfV _0mzm- sqdOP yWX7d        ")
                 print(str(count) + "more" + str(more.getText()))
                 count += 1
             except:
