@@ -33,7 +33,7 @@ class PostAnalysis:
         try:
             # class="Z4IfV _0mzm- sqdOP yWX7d        "
             # more = driver.find_element_by_xpath(load_more_comments)
-            print(driver.page_source)
+            # print(driver.page_source)
             more = driver.find_elements_by_class_name("Z4IfV _0mzm- sqdOP yWX7d        ")
             print("First more" + more.getText())
         except:
