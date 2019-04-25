@@ -30,7 +30,7 @@ class Account:
                  # executable_path='/usr/bin/chromedriver',
                  options=options, service_log_path=devnull)
         driver.get(self.link)
-        # time.sleep(1)
+        time.sleep(1)
 
         script = "window.scrollTo(0, document.body.scrollHeight);" +\
                  "var lenOfPage=document.body.scrollHeight;return lenOfPage;"
