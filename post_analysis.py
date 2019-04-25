@@ -24,7 +24,7 @@ class PostAnalysis:
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
         driver = webdriver.Chrome(
-                 # executable_path='/usr/bin/chromedriver',
+                 executable_path='/usr/bin/chromedriver',
                  options=options, service_log_path=devnull)
         driver.get(self.link)
         # time.sleep(1)
