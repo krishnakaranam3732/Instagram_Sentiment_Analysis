@@ -56,7 +56,7 @@ class Account:
             driver.execute_script(script)
             time.sleep(1)
             lenOfPage = driver.execute_script(height_sc)
-            script = "window.scrollTo(" + lenOfPage +\
+            script = "window.scrollTo(" + str(lenOfPage) +\
                      ", document.body.scrollHeight);"
             time.sleep(2)
 
