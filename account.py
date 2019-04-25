@@ -30,7 +30,7 @@ class Account:
                  # executable_path='/usr/bin/chromedriver',
                  options=options, service_log_path=devnull)
         driver.get(self.link)
-
+        time.sleep(2)
         posts = '//*[@id="react-root"]/section/main/div/' +\
                 'header/section/ul/li[1]/span/span'
         num_of_posts = driver.find_element_by_xpath(posts).text
@@ -38,7 +38,6 @@ class Account:
         num_of_posts = int(num_of_posts)
         print(num_of_posts)
 
-        time.sleep(2)
         # end = "//*[@id="react-root"]/section/footer/div/span"
         # get_end = more = driver.find_element_by_xpath(end)
         script = "window.scrollTo(0, document.body.scrollHeight);" +\
