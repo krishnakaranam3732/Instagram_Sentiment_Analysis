@@ -36,7 +36,7 @@ class PostAnalysis:
             # print(driver.page_source)
             # more = driver.find_elements_by_class_name("Z4IfV _0mzm- sqdOP yWX7d        ")
             # more = driver.find_element_by_css_selector("#food span.dairy.aged")
-            print("First more" + more.getText())
+            print("First more" + str(more))
         except Exception as e:
             print(str(e))
             more = None
@@ -50,7 +50,7 @@ class PostAnalysis:
             try:
                 more = driver.find_element_by_xpath(load_more_comments)
                 # more = driver.find_elements_by_class_name("Z4IfV _0mzm- sqdOP yWX7d        ")
-                print(str(count) + "more" + str(more.getText()))
+                print(str(count) + "more" + str(more))
                 count += 1
             except:
                 more = None
