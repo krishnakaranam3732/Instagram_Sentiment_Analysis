@@ -27,7 +27,7 @@ class PostAnalysis:
                  executable_path='/usr/bin/chromedriver',
                  options=options, service_log_path=devnull)
         driver.get(self.link)
-        time.sleep(0.1)
+        # time.sleep(0.1)
         load_more_comments = "//*[@id='react-root']/section/main/div/" +\
                              "div/article/div[2]/div[1]/ul/li[2]/button"
         try:
@@ -36,10 +36,10 @@ class PostAnalysis:
             more = None
 
         while(more):
-            print("Loading")
+            # print("Loading")
             actions = ActionChains(driver)
             actions.move_to_element(more).click(more).perform()
-            time.sleep(0.1)
+            # time.sleep(0.1)
             try:
                 more = driver.find_element_by_xpath(load_more_comments)
             except:
