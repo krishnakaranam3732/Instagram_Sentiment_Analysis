@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
 from os import devnull
 import time
 
@@ -31,7 +31,8 @@ class Account:
                  options=options, service_log_path=devnull)
         driver.get(self.link)
         time.sleep(2)
-
+        # end = "//*[@id="react-root"]/section/footer/div/span"
+        # get_end = more = driver.find_element_by_xpath(end)
         script = "window.scrollTo(0, document.body.scrollHeight);" +\
                  "var lenOfPage=document.body.scrollHeight;return lenOfPage;"
 

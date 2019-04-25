@@ -2,7 +2,7 @@ from post_analysis import PostAnalysis
 from account import Account
 
 
-username = "sejalkumar1195"
+username = "missionimpossible"
 user = Account(username)
 user.load_full_page()
 posts = user.get_posts()
