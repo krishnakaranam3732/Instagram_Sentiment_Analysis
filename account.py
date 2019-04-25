@@ -37,7 +37,6 @@ class Account:
         try:
             num_of_posts = num_posts.text.replace(",", "")
             num_of_posts = int(num_of_posts)
-            element = driver.find_element_by_tag_name("html")
             sleep_secs = int(num_of_posts/30)
             print("sleep seconds is " + str(sleep_secs))
         except Exception as e:
@@ -46,6 +45,8 @@ class Account:
         t_end = time.time() + sleep_secs
 
         while time.time() < t_end:
+            print("I'm executing")
+            element = driver.find_element_by_tag_name("footer")
             element.send_keys(Keys.END)
 
         # end = "//*[@id="react-root"]/section/footer/div/span"
