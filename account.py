@@ -30,6 +30,7 @@ class Account:
                  # executable_path='/usr/bin/chromedriver',
                  options=options, service_log_path=devnull)
         driver.get(self.link)
+        driver.maximize_window()
         time.sleep(2)
         posts = '//*[@id="react-root"]/section/main/div/header/section/ul/li[1]/a/span'
         picture = '//*[@id="react-root"]/section/main/div/header/div/div/span/img'
@@ -52,7 +53,8 @@ class Account:
             # element = driver.find_element_by_xpath(picture)
             # element.send_keys(Keys.END)
             # driver.find_element_by_tag_name("body").send_keys(Keys.END)
-            driver.execute_script(script)
+            # driver.execute_script(script)
+            driver.find_element_by_tag_name('body').send_keys(Keys.END)
             time.sleep(2)
             # time.sleep(2)
 
