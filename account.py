@@ -37,7 +37,8 @@ class Account:
         try:
             num_of_posts = num_posts.text.replace(",", "")
             num_of_posts = int(num_of_posts)
-            num_posts.send_keys(Keys.END)
+            element = driver.find_element_by_tag_name("html")
+            element.send_keys(Keys.END)
             sleep_secs = int(num_of_posts/30)
         except Exception as e:
             print("Exception occured: ", str(e))
