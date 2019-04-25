@@ -32,6 +32,7 @@ class PostAnalysis:
                              "div/article/div[2]/div[1]/ul/li[2]/button"
         try:
             more = driver.find_element_by_xpath(load_more_comments)
+            print(more)
         except:
             more = None
 
@@ -42,6 +43,7 @@ class PostAnalysis:
             # time.sleep(0.1)
             try:
                 more = driver.find_element_by_xpath(load_more_comments)
+                print(more)
             except:
                 more = None
 
