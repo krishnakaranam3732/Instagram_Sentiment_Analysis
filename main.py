@@ -6,7 +6,7 @@ username = "danbilzerian"
 user = Account(username)
 user.load_full_page()
 posts = user.get_posts()
-print("found " + len(posts) + " posts")
+print("found " + str(len(posts)) + " posts")
 for each_post in posts:
     post = PostAnalysis(each_post)
     post.load_full_page()
