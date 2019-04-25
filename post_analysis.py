@@ -14,7 +14,7 @@ class PostAnalysis:
         self.page = None
 
     def load_full_page(self):
-        print("Use Selenium to load full page")
+        print("Using Selenium to load all comments")
         # temperorily using this to populate self.page
         # with open("page_source.txt", encoding='utf-8') as file:
         #     self.page = file.read()
@@ -36,6 +36,7 @@ class PostAnalysis:
             more = None
 
         while(more):
+            print("Loading")
             actions = ActionChains(driver)
             actions.move_to_element(more).click(more).perform()
             try:

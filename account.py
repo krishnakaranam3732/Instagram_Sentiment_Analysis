@@ -14,6 +14,7 @@ class Account:
         self.page = None
 
     def load_full_page(self):
+        print("Using Selenium to load full page")
         # # temperorily using this to populate self.page
         # with open("page_source.txt",
         #           encoding='utf-8',
@@ -40,7 +41,7 @@ class Account:
             print("Scrolling")
             lastCount = lenOfPage
             lenOfPage = driver.execute_script(script)
-            # time.sleep(1)
+            time.sleep(1)
             if lastCount == lenOfPage:
                 match = True
         self.page = driver.page_source
