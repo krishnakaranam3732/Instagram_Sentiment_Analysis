@@ -38,7 +38,7 @@ class Account:
         try:
             num_of_posts = num_posts.text.replace(",", "")
             num_of_posts = int(num_of_posts)
-            sleep_secs = int(num_of_posts/30)
+            sleep_secs = int(num_of_posts/20)
             print("sleep seconds is " + str(sleep_secs))
         except Exception as e:
             print("Exception occured: ", str(e))
