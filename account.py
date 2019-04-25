@@ -38,12 +38,15 @@ class Account:
             num_of_posts = num_posts.text.replace(",", "")
             num_of_posts = int(num_of_posts)
             element = driver.find_element_by_tag_name("html")
-            element.send_keys(Keys.END)
             sleep_secs = int(num_of_posts/30)
         except Exception as e:
             print("Exception occured: ", str(e))
 
-        time.sleep(sleep_secs)
+        t_end = time.time() + sleep_secs
+
+        while time.time() < t_end:
+            element.send_keys(Keys.END)
+
         # end = "//*[@id="react-root"]/section/footer/div/span"
         # get_end = more = driver.find_element_by_xpath(end)
         # script = "window.scrollTo(0, document.body.scrollHeight);" +\
