@@ -47,8 +47,9 @@ class Account:
 
         while time.time() < t_end:
             print("I'm executing")
-            element = driver.find_element_by_xpath(picture)
-            element.send_keys(Keys.END)
+            # element = driver.find_element_by_xpath(picture)
+            # element.send_keys(Keys.END)
+            driver.find_element_by_tag_name("body").send_keys(Keys.END)
 
         # end = "//*[@id="react-root"]/section/footer/div/span"
         # get_end = more = driver.find_element_by_xpath(end)
