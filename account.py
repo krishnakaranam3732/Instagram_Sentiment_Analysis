@@ -38,7 +38,7 @@ class Account:
         try:
             num_of_posts = num_posts.text.replace(",", "")
             num_of_posts = int(num_of_posts)
-            sleep_secs = int(num_of_posts/20)
+            sleep_secs = int(num_of_posts/15)
             print("sleep seconds is " + str(sleep_secs))
         except Exception as e:
             print("Exception occured: ", str(e))
@@ -54,11 +54,11 @@ class Account:
             # element.send_keys(Keys.END)
             # driver.find_element_by_tag_name("body").send_keys(Keys.END)
             driver.execute_script(script)
-            time.sleep(5)
+            time.sleep(2)
             lenOfPage = driver.execute_script(height_sc)
             script = "window.scrollTo(" + str(lenOfPage) +\
                      ", document.body.scrollHeight);"
-            time.sleep(2)
+            # time.sleep(2)
 
 
         # end = "//*[@id="react-root"]/section/footer/div/span"
