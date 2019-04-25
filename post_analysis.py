@@ -36,7 +36,8 @@ class PostAnalysis:
             # print(driver.page_source)
             more = driver.find_elements_by_class_name("Z4IfV _0mzm- sqdOP yWX7d        ")
             print("First more" + more.getText())
-        except:
+        except Exception as e:
+            print(str(e))
             more = None
         count = 1
         while(more):
