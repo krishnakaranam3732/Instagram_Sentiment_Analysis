@@ -43,9 +43,8 @@ class PostAnalysis:
         count = 1
         while(more):
             # print("Loading")
-            # actions = ActionChains(driver)
-            print("action",
-                  more.click())
+            actions = ActionChains(driver)
+            print("action", actions.move_to_element(more).click(more).perform())
             time.sleep(0.5)
             try:
                 more = driver.find_element_by_xpath(load_more_comments)
