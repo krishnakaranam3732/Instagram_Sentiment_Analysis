@@ -31,7 +31,7 @@ class Account:
                  options=options, service_log_path=devnull)
         driver.get(self.link)
         time.sleep(2)
-        posts = '//*[@id="react-root"]/section/main/div/header/section/ul/li[1]/span/span'
+        posts = '//*[@id="react-root"]/section/main/div/header/section/ul/li[1]/a/span'
         num_of_posts = driver.find_element_by_xpath(posts).text
         num_of_posts = num_of_posts.replace(",", "")
         num_of_posts = int(num_of_posts)
