@@ -53,6 +53,7 @@ class Account:
             # element.send_keys(Keys.END)
             # driver.find_element_by_tag_name("body").send_keys(Keys.END)
             driver.execute_script(script)
+            time.sleep(0.5)
 
         # end = "//*[@id="react-root"]/section/footer/div/span"
         # get_end = more = driver.find_element_by_xpath(end)
