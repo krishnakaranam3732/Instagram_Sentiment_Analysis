@@ -46,6 +46,7 @@ class Account:
         t_end = time.time() + sleep_secs
 
         script = "window.scrollTo(0, document.body.scrollHeight);"
+        height_sc = "var len=document.body.scrollHeight;return len;"
 
         while time.time() < t_end:
             print("I'm executing")
@@ -53,7 +54,12 @@ class Account:
             # element.send_keys(Keys.END)
             # driver.find_element_by_tag_name("body").send_keys(Keys.END)
             driver.execute_script(script)
-            time.sleep(0.5)
+            time.sleep(1)
+            lenOfPage = driver.execute_script(height_sc)
+            script = "window.scrollTo(" + lenOfPage +\
+                     ", document.body.scrollHeight);"
+            time.sleep(2)
+
 
         # end = "//*[@id="react-root"]/section/footer/div/span"
         # get_end = more = driver.find_element_by_xpath(end)
