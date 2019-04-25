@@ -39,7 +39,7 @@ class Account:
             num_of_posts = int(num_of_posts)
             element = driver.find_element_by_tag_name("html")
             sleep_secs = int(num_of_posts/30)
-            print("sleep seconds is " + sleep_secs)
+            print("sleep seconds is " + str(sleep_secs))
         except Exception as e:
             print("Exception occured: ", str(e))
 
