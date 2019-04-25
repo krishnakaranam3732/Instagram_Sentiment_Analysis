@@ -45,8 +45,7 @@ class Account:
 
         t_end = time.time() + sleep_secs
 
-        script = "window.scrollTo(0, document.body.scrollHeight);"
-        height_sc = "var len=document.body.scrollHeight;return len;"
+        script = "window.scrollTo(0, 50000);"
 
         while time.time() < t_end:
             print("I'm executing")
@@ -55,10 +54,6 @@ class Account:
             # driver.find_element_by_tag_name("body").send_keys(Keys.END)
             driver.execute_script(script)
             time.sleep(2)
-            lenOfPage = driver.execute_script(height_sc)
-            script = "window.scrollTo(" + str(lenOfPage) +\
-                     "," + str(lenOfPage * 2) + ");"
-            print(script)
             # time.sleep(2)
 
 
