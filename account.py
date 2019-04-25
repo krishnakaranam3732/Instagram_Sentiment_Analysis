@@ -32,25 +32,32 @@ class Account:
         driver.get(self.link)
         time.sleep(2)
         posts = '//*[@id="react-root"]/section/main/div/header/section/ul/li[1]/a/span'
-        num_of_posts = driver.find_element_by_xpath(posts).text
-        num_of_posts = num_of_posts.replace(",", "")
-        num_of_posts = int(num_of_posts)
-        print(num_of_posts)
+        num_posts = driver.find_element_by_xpath(posts)
+        sleep_secs = 5
+        try:
+            num_of_posts = num_posts.text.replace(",", "")
+            num_of_posts = int(num_of_posts)
+            num_posts.send_keys(Keys.END)
+            sleep_secs = int(num_of_posts/30)
+        except:
+            print("Exception occured")
 
+        time.sleep(sleep_secs)
         # end = "//*[@id="react-root"]/section/footer/div/span"
         # get_end = more = driver.find_element_by_xpath(end)
-        script = "window.scrollTo(0, document.body.scrollHeight);" +\
-                 "var lenOfPage=document.body.scrollHeight;return lenOfPage;"
+        # script = "window.scrollTo(0, document.body.scrollHeight);" +\
+        #          "var lenOfPage=document.body.scrollHeight;return lenOfPage;"
 
-        lenOfPage = driver.execute_script(script)
-        match = False
-        while not match:
-            print("Scrolling")
-            lastCount = lenOfPage
-            lenOfPage = driver.execute_script(script)
-            time.sleep(2)
-            if lastCount == lenOfPage:
-                match = True
+        # lenOfPage = driver.execute_script(script)
+        # match = False
+        # while not match:
+        #     print("Scrolling")
+        #     lastCount = lenOfPage
+        #     lenOfPage = driver.execute_script(script)
+        #     time.sleep(2)
+        #     if lastCount == lenOfPage:
+        #         match = True
+
         self.page = driver.page_source
         driver.close()
 
