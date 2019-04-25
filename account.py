@@ -54,7 +54,7 @@ class Account:
             # element.send_keys(Keys.END)
             # driver.find_element_by_tag_name("body").send_keys(Keys.END)
             driver.execute_script(script)
-            time.sleep(2)
+            time.sleep(5)
             lenOfPage = driver.execute_script(height_sc)
             script = "window.scrollTo(" + str(lenOfPage) +\
                      ", document.body.scrollHeight);"
