@@ -28,31 +28,21 @@ class PostAnalysis:
                  executable_path='/usr/bin/chromedriver',
                  options=options, service_log_path=devnull)
         driver.get(self.link)
-        time.sleep(4)
-        load_more_comments ='//*[@id="react-root"]/section/main/div/div/article/div[2]/div[1]/ul/li[2]/button'
+        # time.sleep(1)
+        load_more_comments = '//*[@id="react-root"]/section/main/div/div/' +\
+                             'article/div[2]/div[1]/ul/li[2]/button'
         try:
-            # class="Z4IfV _0mzm- sqdOP yWX7d        "
             more = driver.find_element_by_xpath(load_more_comments)
-            # print(driver.page_source)
-            # more = driver.find_elements_by_class_name("Z4IfV _0mzm- sqdOP yWX7d        ")
-            # more = driver.find_element_by_css_selector("#food span.dairy.aged")
-            print("First more text is", more.text)
         except Exception as e:
             print(str(e))
             more = None
-        count = 1
+
         while(more):
-            # print("Loading")
             actions = ActionChains(driver)
-            print("action",
-                  driver.execute_script("arguments[0].click();", more))
-            # actions.move_to_element(more).click(more).perform()
-            time.sleep(0.5)
+            driver.execute_script("arguments[0].click();", more)
+            # time.sleep(0.5)
             try:
                 more = driver.find_element_by_xpath(load_more_comments)
-                # more = driver.find_elements_by_class_name("Z4IfV _0mzm- sqdOP yWX7d        ")
-                print(str(count) + " more " + more.text)
-                count += 1
             except:
                 more = None
 
@@ -66,6 +56,7 @@ class PostAnalysis:
         comments_li = soup.find_all("li",
                                     {"role": "menuitem"})
         comments = []
+        print("Found " + str(len(comments_li)) + " comments")
 
         for each_li in comments_li:
             comment = each_li.find("span")
@@ -74,7 +65,6 @@ class PostAnalysis:
                 if clean_comment:
                     comments.append(clean_comment)
         self.page = None
-        print("Found " + str(len(comments)) + " comments")
         return comments
 
     def clean_comment(self, comment):
