@@ -30,13 +30,19 @@ class PostAnalysis:
         # time.sleep(1)
         load_more_comments = "//*[@id='react-root']/section/main/div/" +\
                              "div/article/div[2]/div[1]/ul/li[2]/button"
-        more = driver.find_element_by_xpath(load_more_comments)
+        try:
+            more = driver.find_element_by_xpath(load_more_comments)
+        except:
+            more = None
 
         while(more):
             print("clicking more")
             actions = ActionChains(driver)
             actions.move_to_element(more).click(more).perform()
-            more = driver.find_element_by_xpath(load_more_comments)
+            try:
+                more = driver.find_element_by_xpath(load_more_comments)
+            except:
+                more = None
 
         self.page = driver.page_source
         driver.close()
